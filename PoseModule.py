@@ -50,8 +50,9 @@ def main():
         Success, img = cap.read()
         # img = cv2.resize(ims, (960, 540))
         img = detector.findPose(img)
-        lmList = detector.findPosition(img)
-        print(lmList)
+        lmList = detector.findPosition(img, draw=False)
+        print(lmList[14])
+        cv2.circle(img, (lmList[12][1], lmList[12][2]), 15, (0, 0, 255), cv2.FILLED)
 
         cTime = time.time()
 
